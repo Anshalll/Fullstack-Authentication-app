@@ -22,10 +22,6 @@
 
 ###
 
-<p align="left"></p>
-
-###
-
 <h2 align="left">Backend 💻</h2>
 
 ###
@@ -66,15 +62,23 @@
 
 ###
 
-<h4 align="left">Add environment variables</h4>
+<h3 align="left">Add environment variables</h3>
 
 ###
 
-<h6 align="left">Client<br>REACT_APP_RECAPTCHA_SITE_KEY=<br>REACT_APP_GOOGLE_ID=<br>REACT_APP_BASEURL = http://localhost:3000</h6>
+<h4 align="left">Client</h4>
 
 ###
 
-<h6 align="left">Server<br>GOOGLE_ID = <br>GOOGLE_SECRET = <br>PORT = <br>DB_NAME = <br>MONGO_URI =<br>JWT = *Jwt secret*<br>SENDERS_EMAIL_PASS_KEY = <br>SENDERS_EMAIL=<br>SITE_NAME= *Sitename to be used while sending email*<br>ORIGIN = http://localhost:3000<br>RECAPTCHA_SECRET=<br>RECAPTCHA_SITE_KEY=<br>COOKIE_SECRET =</h6>
+<p align="left">REACT_APP_RECAPTCHA_SITE_KEY=<br>REACT_APP_GOOGLE_ID=<br>REACT_APP_BASEURL = http://localhost:3000</p>
+
+###
+
+<h4 align="left">Server</h4>
+
+###
+
+<p align="left">GOOGLE_ID = <br>GOOGLE_SECRET = <br>PORT = <br>DB_NAME = <br>MONGO_URI =<br>JWT = *Jwt secret*<br>SENDERS_EMAIL_PASS_KEY = <br>SENDERS_EMAIL=<br>SITE_NAME= *Sitename to be used while sending email*<br>ORIGIN = http://localhost:3000<br>RECAPTCHA_SECRET=<br>RECAPTCHA_SITE_KEY=<br>COOKIE_SECRET =</p>
 
 ###
 
