@@ -70,7 +70,7 @@
 
 ###
 
-<p align="left">REACT_APP_RECAPTCHA_SITE_KEY=<br>REACT_APP_GOOGLE_ID=<br>REACT_APP_BASEURL = http://localhost:3000</p>
+<p align="left">REACT_APP_HCAPTCHA_SITE_KEY=<br>REACT_APP_GOOGLE_ID=<br>REACT_APP_BASEURL = http://localhost:3000</p>
 
 ###
 
@@ -78,7 +78,7 @@
 
 ###
 
-<p align="left">GOOGLE_ID = <br>GOOGLE_SECRET = <br>PORT = <br>DB_NAME = <br>MONGO_URI =<br>JWT = *Jwt secret*<br>SENDERS_EMAIL_PASS_KEY = <br>SENDERS_EMAIL=<br>SITE_NAME= *Sitename to be used while sending email*<br>ORIGIN = http://localhost:3000<br>RECAPTCHA_SECRET=<br>RECAPTCHA_SITE_KEY=<br>COOKIE_SECRET =</p>
+<p align="left">GOOGLE_ID=<br>GOOGLE_SECRET=<br>PORT=<br>DB_NAME= <br>MONGO_URI= <br>JWT= <br>SENDERS_EMAIL_PASS_KEY=<br>SENDERS_EMAIL=<br>SITE_NAME=<br>ORIGIN=<br>COOKIE_SECRET=<br>HCAPTCHA_SECRET=</p>
 
 ###
 
