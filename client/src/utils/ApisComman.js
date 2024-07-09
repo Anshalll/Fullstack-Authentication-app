@@ -22,7 +22,10 @@ export const ApisComman = async (name, data, path, setError, method = 'POST', ty
 
   
     if (!type) {
-      recaptchaRef.current.reset();
+      if (recaptchaRef.current) {
+        recaptchaRef.current.resetCaptcha(); 
+      }
+      
     }
   } else {
     return true;

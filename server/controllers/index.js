@@ -51,7 +51,8 @@ export const Register = async (req, res) => {
 
 
     const { username, name, email, password, value } = req.body
-  
+   
+
     try {
 
         await ValidateRegister(req.body, "register")
@@ -76,7 +77,7 @@ export const Login = async (req, res) => {
 
     try {
 
-        CheckFields(req.body, ["useremail", "password" , "recaptchaToken"])
+        CheckFields(req.body, ["useremail", "password" , "hcaptchaToken"])
 
         const { useremail, password } = req.body
 
@@ -131,7 +132,7 @@ export const ResetpassUrlGeneration = async (req, res) => {
 
     try {
 
-        CheckFields(req.body , ["useremail" , "recaptchaToken"])
+        CheckFields(req.body , ["useremail" , "hcaptchaToken"])
 
         const user = await RegisterModel.findOne({ $or: [{ username: useremail }, { email: useremail }] })
         

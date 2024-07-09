@@ -1,35 +1,20 @@
-import axios from 'axios';
-
-async function verifyRecaptcha(recaptchaResponse) {
-    try {
-        const response = await axios.post(
-            "https://www.google.com/recaptcha/api/siteverify",
-            null,
-            {
-                params: {
-
-                    secret: process.env.RECAPTCHA_SECRET,
-                    response: recaptchaResponse,
-
-                },
-            }
-        );
-
-        return response.data.success;
-    } catch (error) {
-        console.error("Error verifying reCAPTCHA:", error);
-        return false;
-    }
-}
+import {verify} from 'hcaptcha'
 
 export const Recaptcha = async (req, res, next) => {
-    const { recaptchaToken } = req.body;
+
+    const { hcaptchaToken } = req.body;
+
+    
 
     try {
-        const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
+        const isHcaptchaValid = await verify(process.env.HCAPTCHA_SECRET , hcaptchaToken);
     
-        if (!isRecaptchaValid) {
-            return res.status(400).json({ error: "reCAPTCHA verification failed" });
+
+
+        if (!isHcaptchaValid?.success) {
+
+            return res.status(400).json({ error: "hcaptcha verification failed" });
+
         } else {
            
             next()

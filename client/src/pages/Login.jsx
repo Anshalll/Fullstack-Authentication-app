@@ -19,12 +19,18 @@ export default function Login (){
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    
+ 
     const data = new FormData(e.target);
-    data.append("recaptchaToken", recaptchaToken);
+    data.append("hcaptchaToken", recaptchaToken);
+
+    
     const datatosend = Object.fromEntries(data.entries());
+
+    console.log(datatosend)
+
     const response = await ApisComman(LoginUser , datatosend , "login" , setError ,  "POST" , null , RecaptchaVal , recaptchaRef)
     if (response) {
+     
       window.location.href = "http://localhost:3000"
   }
 
@@ -68,7 +74,7 @@ export default function Login (){
           </button>}
         </form>
         <Link to="/forgotpassword" className='w-full text-center flex items-center justify-center text-cyan-500 font-bold'>Forgot password?</Link>
-        <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal} setrecaptchaToken={setrecaptchaToken} />
+        <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal} setrecaptchaToken={setrecaptchaToken} setError={setError} />
         <Link to="/register" className='w-full text-center flex items-center justify-center text-cyan-500 font-bold'>New? Create an Account!</Link>
       </div>
     </div>

@@ -22,9 +22,9 @@ const Register = () => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-    data.append("recaptchaToken", recaptchaToken);
+    data.append("hcaptchaToken", recaptchaToken);
     const datatosend = Object.fromEntries(data);
-
+    console.log(datatosend)
     const response = await ApisComman(RegisterUser , datatosend , "verifyregister" , setError  , "POST" , null , RecaptchaVal , recaptchaRef)
 
     if (response) {
@@ -105,7 +105,7 @@ const Register = () => {
             </button>}
           </form>
 
-          <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal} setrecaptchaToken={setrecaptchaToken} />
+          <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal} setrecaptchaToken={setrecaptchaToken} setError={setError} />
           <Link to="/login" className='w-full text-center flex items-center justify-center text-cyan-500 font-bold'>Alredy have an account? Login!</Link>
 
         </div>

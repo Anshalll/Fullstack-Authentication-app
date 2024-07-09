@@ -5,7 +5,7 @@ import { RegisterModel } from '../models/registerModel.js'
 import { CheckFields } from '../shared/CheckFields.js'
 const ValidateRegister = async (data , type) => {
    
-    CheckFields(data , ["username" , "password" , "email" , "cpass" , "name" , type === "register" ?  "value" : null , "recaptchaToken"])
+    CheckFields(data , ["username" , "password" , "email" , "cpass" , "name" , type === "register" ?  "value" : null , "hcaptchaToken"])
 
     for (let a in data) {
         

@@ -1,39 +1,40 @@
 import React from 'react'
-import ReCAPTCHA from "react-google-recaptcha";
-export default function Recaptcha({ recaptchaRef, setrecaptchaToken, setRecaptchaVal }) {
+import HCaptcha from '@hcaptcha/react-hcaptcha'
+
+export default function Recaptcha({ recaptchaRef  , setRecaptchaVal , setrecaptchaToken , setError}) {
 
 
+    const handleVerificationSuccess = (token) => {
+  
+        if (token) {
 
-    const HandleRecaptcha = (value) => {
-
-        if (value) {
-
-            setrecaptchaToken(value)
-            setRecaptchaVal(true)
-
-        }
-        else {
-
-            setrecaptchaToken("")
-            setRecaptchaVal(false)
+            setRecaptchaVal(true)    
+            setrecaptchaToken(token)
 
         }
+
+
+        
     }
 
-    const HandleError  = (error) => {
-        console.error('Error loading ReCAPTCHA:', error);
+
+    const handleError = (error) => {
+            recaptchaRef.current.resetCaptcha()
+            setError(error)
     }
 
     return (
-        <>
+        <div>
 
-            <ReCAPTCHA
+            <HCaptcha
+
                 ref={recaptchaRef}
-                sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-                onChange={HandleRecaptcha}
-                onError={HandleError}
+                sitekey={process.env.REACT_APP_HCAPTCHA_SITE_KEY}
+                onVerify={(token) => handleVerificationSuccess(token)}
+                onExpire={() => handleError("captcha expired!") }
+                onError={() => handleError("captcha verification failed!")}
             />
 
-        </>
+        </div>
     )
 }

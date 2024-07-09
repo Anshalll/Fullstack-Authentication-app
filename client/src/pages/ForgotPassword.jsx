@@ -27,7 +27,7 @@ export default function ForgotPassword() {
 
 
         const data = new FormData(e.target);
-        data.append("recaptchaToken", recaptchaToken);
+        data.append("hcaptchaToken", recaptchaToken);
         const datatosend = Object.fromEntries(data);
 
         const response = await ApisComman(Forgotpass, datatosend, "reseturlgeneration", setError, "POST", null, RecaptchaVal, recaptchaRef)
@@ -81,7 +81,7 @@ export default function ForgotPassword() {
                         }
                     </form>
 
-                    <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal} setrecaptchaToken={setrecaptchaToken} />
+                    <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal} setrecaptchaToken={setrecaptchaToken}  setError={setError}/>
 
                 </div>
             </div>

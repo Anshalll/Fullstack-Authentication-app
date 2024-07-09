@@ -17,9 +17,11 @@ export default function Verifyregisterotp({data}) {
 
   const HandleSubmit = async () => {
 
-    data.recaptchaToken = recaptchaToken
+    data.hcaptchaToken = recaptchaToken
     data.value = otpvalue
+    console.log(data)
     const response = await ApisComman(Verifyotp , data , "register" , setError , "POST" , null  , RecaptchaVal , recaptchaRef)
+    console.log(response)
     if (response) {
         window.location.href = "http://localhost:3000"
     }
@@ -32,9 +34,11 @@ export default function Verifyregisterotp({data}) {
 
  
 
-    data.recaptchaToken = recaptchaToken
+    data.hcaptchaToken = recaptchaToken
     delete data.value
     
+    console.log(data);
+
     const response = await ApisComman(Verifyotp , data , "verifyregister" , setError , "POST" , null  , RecaptchaVal , recaptchaRef)
     
     if (response) {
@@ -73,7 +77,7 @@ export default function Verifyregisterotp({data}) {
         Verify
       </button>}
       <button onClick={Resendotp}>Resend otp</button>
-      <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal}  setrecaptchaToken={setrecaptchaToken} />
+      <Recaptcha recaptchaRef={recaptchaRef} setRecaptchaVal={setRecaptchaVal}  setrecaptchaToken={setrecaptchaToken} setError={setError} />
 
       </div>
 
